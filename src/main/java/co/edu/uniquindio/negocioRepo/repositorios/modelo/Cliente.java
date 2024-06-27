@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 import lombok.*;
+import lombok.Builder;
 
 @Document("clientes")
 @Getter
@@ -19,6 +20,15 @@ public class Cliente implements Serializable {
 
     private String fotoPerfil;
     private String nickName;
+    private String email;
     private String ciudad;
+
+    @Builder
+    public Cliente(String fotoPerfil, String nickName, String email, String ciudad) {
+        this.fotoPerfil = fotoPerfil;
+        this.nickName = nickName;
+        this.email = email;
+        this.ciudad = ciudad;
+    }
 }
 
